@@ -16,7 +16,7 @@ connection.connect(function(err) {
   if (err) throw err;
   empTrack();
 }); 
-
+// ridiculous amount of code for an app title that under uses use an npm package, which has a sole purpose to display txt art goes here
 echo ("                                                                                                                                                                             ");
 echo ("                                                                                                                                                                             ");
 echo (":::::::::: ::::    ::::  :::::::::  :::        ::::::::  :::   ::: :::::::::: ::::::::::      ::::::::::: :::::::::      :::      ::::::::  :::    ::: :::::::::: :::::::::  ");
@@ -86,6 +86,38 @@ echo ("                                                                         
       }
   })
 };
+// menu function for later development
+// function menu(){
+//   inquirer
+//   .prompt([
+//     {
+//     type: "list",
+//     name: "options",
+//     message: "--------------------------------------",
+//     choices: [
+//       "Main Menu",
+//       "         ",
+//       "Exit"
+//     ],
+//     name:"menuResponse"
+//    }
+//   ]).then({function(res){
+//     switch(res.menuResponse) {      
+//       case "Main Menu":
+//         empTrack();
+//         break;
+        
+//       case "         ":
+//         console.log("");
+//         break;
+
+//       case "Exit":
+//       connection.end();
+//       console.log("Thanks for using Employee Tracker, Have a nice day!");
+//     }
+//   }
+//   })
+// }
 
 const employeeView = (inputs = []) => {
   inquirer

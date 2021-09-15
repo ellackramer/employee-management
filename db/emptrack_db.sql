@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS `emp_man_db`;
+DROP DATABASE IF EXISTS `emptrack_db`;
 
-CREATE DATABASE emp_man_db;
-USE emp_man_db;
+CREATE DATABASE emptrack_db;
+USE emptrack_db;
 
 CREATE TABLE employee
 (

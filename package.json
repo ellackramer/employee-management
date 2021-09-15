@@ -1,27 +1,27 @@
 {
-    "name": "employeemanagement",
-    "version": "1.0.0",
-    "description": "**Employee Management**",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/ellackramer/employee-management.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      "console.table": "0.10.0",
-      "inquirer": "7.0.0",
-      "mysql": "2.17.1",
-      "node-echo": "0.1.1",
-      "nodemon": "^2.0.1",
-      "sequelize": "5.21.2"
-    },
-    "bugs": {
-      "url": "https://github.com/ellackramer/employee-management/issues"
-    },
-    "homepage": "https://github.com/ellackramer/employee-management#readme"
-  }
+  "name": "employee-management",
+  "version": "1.0.0",
+  "description": "**Employee Management**",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ellackramer/employee-management.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "console.table": "0.10.0",
+    "inquirer": "7.0.0",
+    "mysql": "2.17.1",
+    "node-echo": "0.1.1",
+    "nodemon": "^2.0.1",
+    "sequelize": "5.21.2"
+  },
+  "bugs": {
+    "url": "https://github.com/ellackramer/employee-management/issues"
+  },
+  "homepage": "https://github.com/ellackramer/employee-management#readme"
+}

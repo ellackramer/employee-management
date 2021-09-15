@@ -1,4 +1,5 @@
-USE emp_man_db;
+-- ///////////////
+USE emptrack_db;
 
 INSERT INTO department (dept_name)
 VALUES
