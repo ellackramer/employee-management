@@ -1,4 +1,3 @@
-const fs = require('fs');
 const mysql = require('mysql');
 const inquirer = require('inquirer');
 const ctable = require('console.table');
@@ -16,7 +15,9 @@ connection.connect(function(err) {
   if (err) throw err;
   empTrack();
 }); 
-// ridiculous amount of code for an app title that under uses use an npm package, which has a sole purpose to display txt art goes here
+
+
+
 echo ("                                                                                                                                                                             ");
 echo ("                                                                                                                                                                             ");
 echo (":::::::::: ::::    ::::  :::::::::  :::        ::::::::  :::   ::: :::::::::: ::::::::::      ::::::::::: :::::::::      :::      ::::::::  :::    ::: :::::::::: :::::::::  ");
@@ -47,6 +48,8 @@ echo ("                                                                         
       ],
       name:"choice"
     }
+
+
   ]).then(function(res) {
     console.log(
       res.choice
@@ -56,11 +59,11 @@ echo ("                                                                         
           employeeView();
           break;
 
-        case "View all employees by department":
+        case "View by department":
           departmentView();
           break;
 
-        case "View all employees by Manager":
+        case "View by Manager":
           managerView();
           break;
 
@@ -86,45 +89,13 @@ echo ("                                                                         
       }
   })
 };
-// menu function for later development
-// function menu(){
-//   inquirer
-//   .prompt([
-//     {
-//     type: "list",
-//     name: "options",
-//     message: "--------------------------------------",
-//     choices: [
-//       "Main Menu",
-//       "         ",
-//       "Exit"
-//     ],
-//     name:"menuResponse"
-//    }
-//   ]).then({function(res){
-//     switch(res.menuResponse) {      
-//       case "Main Menu":
-//         empTrack();
-//         break;
-        
-//       case "         ":
-//         console.log("");
-//         break;
-
-//       case "Exit":
-//       connection.end();
-//       console.log("Thanks for using Employee Tracker, Have a nice day!");
-//     }
-//   }
-//   })
-// }
 
 const employeeView = (inputs = []) => {
   inquirer
     .prompt({
       name: "employeeView",
       type: "input",
-      message: "Enter Employee last name to begin search"
+      message: "Search by employee last name"
     })
     .then(function(choice) {
       let query = "SELECT first_name, last_name, id FROM employee WHERE ?";
@@ -167,12 +138,14 @@ const managerView = (res) => {
   })
   menu();
 }
+
+
 const employeeAdd = () => {
   inquirer
     .prompt({
       name: "employeeAdd",
       type: "input",
-      message: "Enter Employee First then Last Name"
+      message: "Enter Employee name First then Last Name"
     })
 
     .then(function(answer) {
@@ -188,28 +161,8 @@ const employeeAdd = () => {
       empTrack();
     });
 }
-const employeeRemove = () => {
-  inquirer
-    .prompt({
-      name: "employeeRemove",
-      type: "input",
-      message: "What employee would you like to remove?",
-    })
-    .then(function() {
-      console.log(choice)
-      let query = "DELETE FROM employee WHERE ?";
-      let delId = Number(choice.employeeRemove);
-      console.log(delId);
-      connection.query(query, { id: delId}, function(err, res) {
-        if (err) throw err;
 
-        for (var i = 0; i < res.length; i++) {
-          console.log(res[i].employeeRemove);
-        }
-        empTrack();
-      });
-    });
-}
+
 const employeeUpdate = () => {
   inquirer
   .prompt({
@@ -239,6 +192,8 @@ const employeeUpdate = () => {
       });
   });
 }
+
+
 const employeeManager = () => {
   inquirer
     .prompt({

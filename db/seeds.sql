@@ -1,4 +1,4 @@
--- ///////////////
+
 USE emptrack_db;
 
 INSERT INTO department (dept_name)
@@ -21,11 +21,9 @@ VALUES
 
 INSERT INTO employee (first_name, last_name, role_id, mgr_id)
 VALUES
-    ('Sah', 'Lud', 7, NULL),
-    ('Brack', 'Oma', 1, NULL),
-    ('Kevin', 'Chilli', 4, 3),
-    ('James', 'Ruez', 3, NULL),
+    ('John', 'Deer', 7, NULL),
+    ('Jane', 'Doe', 1, NULL),
+    ('Mike', 'Smith', 4, 3),
+    ('Bruce', 'Wayne', 3, NULL),
     ('Jackie', 'Chan', 2, 1),
-    ('Mai', 'Won', 6, 5),
-    ('Tom', 'Alein', 8, 7),
-    ('Kal', 'Sig', 5, NULL);
+    ('The', 'Dude', 6, 5),
