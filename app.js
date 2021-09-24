@@ -82,6 +82,29 @@ echo ("                                                                         
   })
 };
 
+//add new employee to database//
+const employeeAdd = () => {
+  inquirer
+    .prompt({
+      name: "employeeAdd",
+      type: "input",
+      message: "Enter first name then last name"
+    })
+
+    .then(function(answer) {
+      console.log(answer);
+      let name = answer.employeeAdd;
+      let firstAndLastName = name.split(" ");
+      console.log(firstAndLastName);
+      let query = "INSERT INTO employee (first_name, last_name) VALUES ?";
+      connection.query(query, [[firstAndLastName]], function(err, res) {
+        if (err) throw err;
+        console.log(err);
+      });
+      empTrack();
+    });
+}
+
 // search employee by last name//
 
 const employeeView = (inputs = []) => {
@@ -139,28 +162,7 @@ const managerView = (res) => {
   menu();
 }
 
-//add new employee to database//
-const employeeAdd = () => {
-  inquirer
-    .prompt({
-      name: "employeeAdd",
-      type: "input",
-      message: "Enter first name then last name"
-    })
 
-    .then(function(answer) {
-      console.log(answer);
-      let name = answer.employeeAdd;
-      let firstAndLastName = name.split(" ");
-      console.log(firstAndLastName);
-      let query = "INSERT INTO employee (first_name, last_name) VALUES ?";
-      connection.query(query, [[firstAndLastName]], function(err, res) {
-        if (err) throw err;
-        console.log(err);
-      });
-      empTrack();
-    });
-}
 
 //update existing employee information//
 const employeeUpdate = () => {
