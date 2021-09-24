@@ -145,7 +145,7 @@ const employeeAdd = () => {
     .prompt({
       name: "employeeAdd",
       type: "input",
-      message: "Enter Employee name First then Last Name"
+      message: "Enter first name then last name"
     })
 
     .then(function(answer) {
