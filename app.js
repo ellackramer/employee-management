@@ -41,9 +41,7 @@ echo ("                                                                         
         "View all employees by department",
         "View all employees by manager",
         "Add Employee",
-        "Remove Employee",
         "Update Employee Role",
-        "Update Employee Manager",
         "exit"
       ],
       name:"choice"
@@ -55,6 +53,7 @@ echo ("                                                                         
       res.choice
       );
       switch (res.choice) {
+        
         case "View all employees":
           employeeView();
           break;
@@ -71,17 +70,10 @@ echo ("                                                                         
           employeeAdd();
           break;
 
-        case "Remove Employee":
-          employeeRemove();
-          break;
-
         case "Update Employee Role":
           employeeUpdate();
           break;
 
-        case "Update Manager":
-          employeeManager();
-          break;
 
         case "Quit":
           connection.end();
@@ -89,6 +81,8 @@ echo ("                                                                         
       }
   })
 };
+
+// search employee by last name//
 
 const employeeView = (inputs = []) => {
   inquirer
@@ -114,6 +108,9 @@ const employeeView = (inputs = []) => {
       empTrack()
     });
 }
+
+// search employee by department//
+
 const departmentView = (res) => {
   let query = "SELECT dept_name FROM department";
   connection.query(query, function(err, res) {
@@ -122,6 +119,9 @@ const departmentView = (res) => {
     }
   });
 }
+
+//view employee by manager//
+
 const managerView = (res) => {
   let query = "SELECT mgr_id, first_name, last_name FROM employee WHERE mgr_id IN (SELECT mgr_id FROM employee WHERE mgr_id IS NOT NULL)";
   connection.query(query, function(err, res) {
@@ -139,7 +139,7 @@ const managerView = (res) => {
   menu();
 }
 
-
+//add new employee to database//
 const employeeAdd = () => {
   inquirer
     .prompt({
@@ -162,7 +162,7 @@ const employeeAdd = () => {
     });
 }
 
-
+//update existing employee information//
 const employeeUpdate = () => {
   inquirer
   .prompt({
@@ -191,25 +191,4 @@ const employeeUpdate = () => {
         });
       });
   });
-}
-
-
-const employeeManager = () => {
-  inquirer
-    .prompt({
-      name: "employeeManager",
-      type: "input",
-      message: "What employee would you like to update the manager for?"
-    })
-    .then(function() {
-      let query = "SELECT manager_id FROM employee WHERE ?";
-      connection.query(query, function(err, res) {
-        if (err) throw err;
-
-        for (var i = 0; i < res.length; i++) {
-          console.log(res[i].employee);
-        }
-        empTrack();
-      });
-    });
 }
